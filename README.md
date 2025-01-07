@@ -2,10 +2,9 @@
 [![Go Report Card](https://goreportcard.com/badge/github.com/pashagolub/pgxmock)](https://goreportcard.com/report/github.com/pashagolub/pgxmock)
 [![Coverage Status](https://coveralls.io/repos/github/pashagolub/pgxmock/badge.svg?branch=master)](https://coveralls.io/github/pashagolub/pgxmock?branch=master)
 
-
 # pgx driver mock for Golang
 
-**pgxmock** is a mock library implementing [pgx - PostgreSQL Driver and Toolkit](https://github.com/jackc/pgx/). 
+**pgxmock** is a mock library implementing [pgx - PostgreSQL Driver and Toolkit](https://github.com/jackc/pgx/).
 It's based on the well-known [sqlmock](https://github.com/DATA-DOG/go-sqlmock) library for `sql/driver`.
 
 **pgxmock** has one and only purpose - to simulate **pgx** behavior in tests, without needing a real database connection. It helps to maintain correct **TDD** workflow.
@@ -28,10 +27,9 @@ See implementation examples:
 - [the simplest one](https://github.com/pashagolub/pgxmock/tree/master/examples/basic)
 - [blog API server](https://github.com/pashagolub/pgxmock/tree/master/examples/blog)
 
-
 ### Something you may want to test
 
-``` go
+```go
 package main
 
 import (
@@ -84,7 +82,7 @@ func main() {
 
 ### Tests with pgxmock
 
-``` go
+```go
 package main
 
 import (
@@ -165,7 +163,7 @@ which uses expected SQL string as a regular expression to match incoming query s
 
 In order to customize the QueryMatcher, use the following:
 
-``` go
+```go
 	mock, err := pgxmock.New(context.Background(), sqlmock.QueryMatcherOption(pgxmock.QueryMatcherEqual))
 ```
 
@@ -178,7 +176,7 @@ There may be arguments which are of `struct` type and cannot be compared easily 
 **pgxmock** provides an [Argument](https://pkg.go.dev/github.com/pashagolub/pgxmock/v2#Argument) interface which
 can be used in more sophisticated matching. Here is a simple example of time argument matching:
 
-``` go
+```go
 type AnyTime struct{}
 
 // Match satisfies sqlmock.Argument interface
@@ -225,3 +223,5 @@ and will be treated cautiously
 ## License
 
 The [three clause BSD license](http://en.wikipedia.org/wiki/BSD_licenses)
+
+## Author
